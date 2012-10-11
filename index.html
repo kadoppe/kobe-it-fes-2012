@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ShareWis？</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./style.css" type="text/css">
+  </head>
+  <body>
+    <h1>ShareWis？</h1>
+    <svg id="svg" width="400" height="400">
+      <defs>
+        <filter id="drop-shadow">
+          <feGaussianBlur in='SourceAlpha' result='blur' stdDeviation=1 />
+          <feColorMatrix in='blur' type='matrix' values='1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 0.5 0' result='alphaBlur' />
+          <feOffset in='alphaBlur' result='offsetBlur' dx=2 dy=2 />
+          <feBlend in='SourceGraphic' in2='offsetBlur' mode='normal' />
+        </filter>
+      </defs>
+
+      <!-- 円 -->
+      <circle cx="110" cy="120" r="89" class="large" />
+      <circle cx="155" cy="85" r="64" class="large" />
+      <circle cx="110" cy="120" r="53" fill="#9EEBF4" />
+      <circle cx="155" cy="85" r="33" fill="#9EEBF4" />
+      <circle cx="110" cy="120" r="18" fill="#4ED1E0" filter="url(#drop-shadow)" />
+      <circle cx="155" cy="85" r="13" fill="#4ED1E0" filter="url(#drop-shadow)">
+        <animate attributeName="r"
+                 begin="0s"
+                 dur="1s"
+                 from="13"
+                 to="30"
+                 repeatCount="indefinite" />
+      </circle>
+
+      <!-- 線 -->
+      <line x1="110" y1="120" x2="155" y2="85" stroke="#4ED1E0" stroke-width="3">
+    </svg>
+    <script src="index.js"></script>
+  </body>
+</html>
+
